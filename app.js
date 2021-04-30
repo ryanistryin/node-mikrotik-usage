@@ -194,6 +194,10 @@ getIdentity = async function (conn) {
                     delete connections[conn.user_id]
                 }
             })
+
+            api.on('error', (err) => {
+                console.log('got some error', err)
+            })
     } catch (error) {
         console.log('error connecting to ' + conn.host, error)
     }
