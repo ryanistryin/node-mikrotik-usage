@@ -21,6 +21,7 @@ Aggregate that information and send it off to InfluxDB
   * Take node of your organisation id (look at the url)
     
 - Edit app.js, add your `token` inside `token` constant and `bucket` in `bucket` constant  and `organisation id` in the constant `org`
+- install dependencies `npm install`
 - Start the app (`node app.js`)
 
 
