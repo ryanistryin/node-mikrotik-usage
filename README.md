@@ -12,14 +12,15 @@ Aggregate that information and send it off to InfluxDB
 
 # Installation
 
-- Clone the Repo
+- Clone the Repo `git clone https://github.com/ryanistryin/node-mikrotik-usage.git MTUsage`
 - Install Influxdb `docker run -p 8086:8086 -v influxdb2:/var/lib/influxdb influxdb:2.0`
 - Configure InfluxDB and get your token
   * Login to influx and go to Data>Buckets
   * Create a new bucket (make sure to give it a retention time!), take note of the bucket name
   * Click Tokens, Generate Read/Write Token, Select your bucket on both sides
+  * Take node of your organisation id (look at the url)
     
-- Edit app.js, add your `token` inside `token` constant and `bucket` in `bucket` constant 
+- Edit app.js, add your `token` inside `token` constant and `bucket` in `bucket` constant  and `organisation id` in the constant `org`
 - Start the app (`node app.js`)
 
 
