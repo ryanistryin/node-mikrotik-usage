@@ -6,10 +6,10 @@ const { InfluxDB, Point } = require("@influxdata/influxdb-client");
 // You can generate a Token from the "Tokens Tab" in the UI
 const token =
     "INFLUX_TOKEN";
-const org = "05d1460548c16000";
-const bucket = "MT_Torch";
+const org = "ORGANISATION_ID";
+const bucket = "BUCKET_NAME";
 const influx_client = new InfluxDB({
-    url: "http://localhost:9999",
+    url: "http://localhost:8086",
     token: token
 });
 
@@ -209,7 +209,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
-app.listen(3000);
+app.listen(3001);
 app.post('/add', function (req, res) {
     const host = req.body.host 
     const user = req.body.user || def_user
@@ -228,7 +228,7 @@ app.post('/add', function (req, res) {
 
 app.post('/remove', function (req, res) {
     
-    const user_id = req.body.user_id || def_user_id //TODO: remove this. we cant have a default. rather throw error
+    const user_id = req.body.user_id
     res.sendStatus(200);
     connections[user_id] = false
 
