@@ -21,6 +21,7 @@ Aggregate that information and send it off to InfluxDB
   * Take node of your organisation id (look at the url)
     
 - Edit app.js, add your `token` inside `token` constant and `bucket` in `bucket` constant  and `organisation id` in the constant `org`
+- install dependencies `npm install`
 - Start the app (`node app.js`)
 
 
@@ -29,9 +30,9 @@ The concept is that a `user_id` is passed through, this should be the identifier
 
 Start Monitoring
 
-Send `HTTP POST` request to `localhost:3000/start` with the following parameters `{host:, user, password, user_id}`
+Send `HTTP POST` request to `localhost:3001/start` with the following parameters `{host:, user, password, user_id}`
 
 
 Stop Monitoring
 
-Send `HTTP POST` request to `localhost:3000/remove` with the following parameters `{user_id}`
+Send `HTTP POST` request to `localhost:3001/remove` with the following parameters `{user_id}`
