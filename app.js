@@ -196,7 +196,11 @@ getIdentity = async function (conn) {
             })
 
             api.on('error', (err) => {
-                console.log('got some error', err)
+                console.log('API got some error', err)
+            })
+            client.on('error', (err) => {
+                console.log('CLIENT got some error', err)
+
             })
     } catch (error) {
         console.log('error connecting to ' + conn.host, error)
