@@ -1,15 +1,15 @@
 const RouterOSClient = require('routeros-client').RouterOSClient;
 const express = require('express');
 const bodyParser = require('body-parser');
+const config = require('./config');
 
 const { InfluxDB, Point } = require("@influxdata/influxdb-client");
 // You can generate a Token from the "Tokens Tab" in the UI
-const token =
-    "INFLUX_TOKEN";
-const org = "ORGANISATION_ID";
-const bucket = "BUCKET_NAME";
+const token = config.influx.token;
+const org = config.influx.org;
+const bucket = config.influx.bucket;
 const influx_client = new InfluxDB({
-    url: "http://localhost:8086",
+    url: config.influx.token,
     token: token
 });
 
@@ -17,8 +17,8 @@ const influx_client = new InfluxDB({
 
 
 // const def_host = '192.168.88.1'
-const def_user = 'admin'
-const def_password = 'password'
+const def_user = config.device.user
+const def_password = config.device.password
 // const def_user_id = 123
 
 
@@ -198,10 +198,10 @@ getIdentity = async function (conn) {
             api.on('error', (err) => {
                 console.log('API got some error', err)
             })
-            client.on('error', (err) => {
-                console.log('CLIENT got some error', err)
+            // client.on('error', (err) => {
+            //     console.log('CLIENT got some error', err)
 
-            })
+            // })
     } catch (error) {
         console.log('error connecting to ' + conn.host, error)
     }
@@ -217,7 +217,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
-app.listen(3001);
+app.listen(config.app.port);
 app.post('/add', function (req, res) {
     const host = req.body.host 
     const user = req.body.user || def_user
