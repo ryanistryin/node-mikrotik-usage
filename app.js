@@ -207,7 +207,9 @@ getIdentity = async function (conn) {
     }
 
 
-
+    api.on('error', (err) => {
+        console.log('API got some error #2', err)
+    })
 
 }
 
