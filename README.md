@@ -20,7 +20,13 @@ Aggregate that information and send it off to InfluxDB
   * Click Tokens, Generate Read/Write Token, Select your bucket on both sides
   * Take node of your organisation id (look at the url)
     
-- Edit app.js, add your `token` inside `token` constant and `bucket` in `bucket` constant  and `organisation id` in the constant `org`
+- Copy the config.example.js file to config.js `cp config.example.js config.js` and edit the file to include
+    * token
+    * bucket
+    * organisation id
+    * default password (optional)
+    * default username (optional)
+    
 - install dependencies `npm install`
 - Start the app (`node app.js`)
 
