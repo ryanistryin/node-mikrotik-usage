@@ -9,7 +9,7 @@ const token = config.influx.token;
 const org = config.influx.org;
 const bucket = config.influx.bucket;
 const influx_client = new InfluxDB({
-    url: config.influx.token,
+    url: config.influx.url,
     token: token
 });
 
